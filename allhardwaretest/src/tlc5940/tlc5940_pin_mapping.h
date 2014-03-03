@@ -1,0 +1,17 @@
+#ifndef __TLC5940_PIN_MAPPING_H__
+
+#define TLC_VPRG RPI_V2_GPIO_P1_07 /* GPCLK0 */
+#define TLC_XERR RPI_V2_GPIO_P1_11
+#define TLC_GSCLK RPI_V2_GPIO_P1_12 /* PCM_CLK */
+#define TLC_XLAT RPI_V2_GPIO_P1_13
+#define TLC_BLANK RPI_V2_GPIO_P1_15
+#define TLC_SIN RPI_V2_GPIO_P1_16
+#define TLC_SCLK RPI_V2_GPIO_P1_18
+
+#endif
+
+
+
+
+
+

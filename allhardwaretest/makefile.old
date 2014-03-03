@@ -1,0 +1,13 @@
+SOURCES=main.cpp adc/adcSpi.cpp mouse/mouse.cpp tlc5940/tlc5940.cpp tlc5940/timespec_math.cpp tlc5940/bcm2835_timer.cpp
+HEADERS=adc/adcSpi.h mouse/mouse.h tlc5940/tlc5940.h tlc5940/timespec_math.h tlc5940/bcm2835_timer.h
+
+CFLAGS=-Wall
+LIBS=-lpthread -lbcm2835 -lm
+
+all: $(SOURCES) $(HEADERS)
+	g++ $(CFLAGS) -o main $(SOURCES) $(LIBS)
+
+debug: $(SOURCES) $(HEADERS)
+	g++ -g $(CFLAGS) -o main $(SOURCES) $(LIBS)
+
+

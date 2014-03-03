@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include <linux/input.h>
+#include <fcntl.h>
+
+#define MOUSEFILE "/dev/input/mouse0"
+
+int main(int argc, char *argv[])
+{
+	struct input_event ie;
+
+	int fd = open(MOUSEFILE, O_RDONLY);
+
+	if (fd == -1) {
+		perror("Failed to open mouse device %s\n", MOUSEFILE);
+		return -1;
+	}
+
+	while ( read( fd, &ie, sizeof(struct input_event) ) ) {
+		printf("time %ld.%06ld\ttype %d\tcode %d\tvalue %d\n", ie.time.tv_sec, ie.time.tv_usec, ie.type, ie.code, ie.value);
+	}
+
+	return 0;
+}
